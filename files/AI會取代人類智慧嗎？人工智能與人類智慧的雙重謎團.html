@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《AI會取代人類智慧嗎？》互動式全書導讀</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f4f7fb;
+            color: #1e293b;
+        }
+        /* 自訂捲軸樣式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .step-badge {
+            box-shadow: 0 4px 12px rgba(15, 41, 66, 0.25);
+        }
+        .card-transition {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-transition:hover {
+            transform: translateY(-2px);
+        }
+        .active-tab {
+            background-color: #0f2942;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(15, 41, 66, 0.3);
+        }
+        .flow-line {
+            background: linear-gradient(180deg, #0f2942 0%, #0d9488 100%);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- 頂部書籍標題與導覽區 -->
+    <header class="bg-[#0f2942] text-white sticky top-0 z-50 shadow-lg border-b border-slate-700">
+        <div class="max-w-6xl mx-auto px-4 py-3 sm:px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 text-xs font-bold bg-amber-400 text-slate-900 rounded-full">互動式讀書會導讀</span>
+                    <span class="text-xs text-slate-300">作者：丹尼爾·安德勒 (Daniel Andler)</span>
+                </div>
+                <h1 class="text-lg sm:text-xl font-black tracking-tight mt-1 text-white">
+                    《AI會取代人類智慧嗎？：人工智能與人類智慧的雙重謎團》
+                </h1>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-slate-300 bg-slate-800/70 px-3 py-2 rounded-lg border border-slate-700 self-start md:self-auto">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>點擊下方章節與卡片，展開深度白話解析</span>
+            </div>
+        </div>
+
+        <!-- Ch01 ~ Ch10 分頁導覽列 -->
+        <div class="bg-slate-900/90 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 overflow-x-auto">
+                <div class="flex items-center space-x-2 min-w-max" id="chapter-tabs">
+                    <!-- 由 JS 動態生成 Ch01-Ch10 按鈕 -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要內容區塊 -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8">
+
+        <!-- ==========================================
+             CH06 內容區塊：人工智慧與人類智慧的比較
+             ========================================== -->
+        <section id="content-ch06" class="chapter-section space-y-8">
+            
+            <!-- 章節大標題橫幅 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#0f2942] via-teal-600 to-amber-500"></div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold mb-3">
+                    <span>第二部：人類智慧與人工智慧的面對面</span>
+                    <span>•</span>
+                    <span>安德勒的論證路線</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-[#0f2942] tracking-tight">
+                    Ch06｜人工智慧與人類智慧的比較
+                </h2>
+                <p class="mt-3 inline-block bg-sky-100 text-[#0f2942] font-bold px-5 py-1.5 rounded-full text-sm sm:text-base">
+                    從接受比較，到重新檢查智慧的定義
+                </p>
+                <p class="mt-4 text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                    當 AI 下棋贏過人類、甚至能寫文章畫圖，我們很容易問：「AI 快要追上人類智慧了嗎？」安德勒在本章帶我們退一步思考：當我們把兩者放在同一個天秤上比較「解題表現」時，是不是一開始就問錯了問題？
+                </p>
+            </div>
+
+            <!-- 步驟時間軸容器 -->
+            <div class="relative space-y-8 before:hidden md:before:block before:absolute before:top-10 before:bottom-10 before:left-[104px] before:w-1 before:bg-slate-300">
+
+                <!-- Step 1: 6.1-6.2 重新提出問題 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <!-- 左側深藍階段卡 -->
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">1</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">起點｜6.1-6.2</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">重新提出問題</h3>
+                    </div>
+
+                    <!-- 右側內容卡 -->
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                        <h4 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>AI 的驚人表現，是否代表它正走向人類智慧？</span>
+                        </h4>
+                        <p class="text-sm text-slate-600">
+                            面對 AI 浪潮，安德勒要求我們先把兩個常被混為一談的問題拆開來看（點擊下方卡片查看作者態度）：
+                        </p>
+
+                        <!-- 互動雙問題卡片 -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="toggleCh06Q1('a')" id="btn-ch06-q1a" class="card-transition text-left p-4 rounded-xl bg-sky-50 hover:bg-sky-100 border-2 border-sky-300 focus:outline-none">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-bold text-sky-700 bg-sky-200/70 px-2 py-0.5 rounded">問題一：工程與自動化</span>
+                                    <span class="text-xs text-sky-600 font-semibold">點擊解析 ▼</span>
+                                </div>
+                                <p class="font-bold text-[#0f2942] text-base mt-1">認知功能能否持續自動化？</p>
+                                <div id="desc-ch06-q1a" class="mt-3 pt-3 border-t border-sky-200 text-xs sm:text-sm text-slate-700 space-y-1">
+                                    <p class="font-bold text-emerald-700">✔ 作者態度：對此保持樂觀</p>
+                                    <p>在特定規則明確的領域（如醫療影像判讀、翻譯、路線規劃、遊戲），AI 自動化處理資訊的能力確實會不斷突破並擴大應用。</p>
+                                </div>
+                            </button>
+
+                            <button onclick="toggleCh06Q1('b')" id="btn-ch06-q1b" class="card-transition text-left p-4 rounded-xl bg-sky-50 hover:bg-sky-100 border-2 border-sky-300 focus:outline-none">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-bold text-sky-700 bg-sky-200/70 px-2 py-0.5 rounded">問題二：本質與通用性</span>
+                                    <span class="text-xs text-sky-600 font-semibold">點擊解析 ▼</span>
+                                </div>
+                                <p class="font-bold text-[#0f2942] text-base mt-1">是否能達成人類式智慧？</p>
+                                <div id="desc-ch06-q1b" class="mt-3 pt-3 border-t border-sky-200 text-xs sm:text-sm text-slate-700 space-y-1">
+                                    <p class="font-bold text-rose-700">✖ 作者態度：對此高度懷疑</p>
+                                    <p>完成一個個認知任務的自動化，不等於機器就擁有了「人類式的整體智慧（AGI）」。兩者之間存在概念上的鴻溝。</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- 底部黃色總結條 -->
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            💡 核心結論：作者對「認知功能持續自動化」樂觀，但對「達成人類式智慧」懷疑。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: 6.3 盤點立場 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">2</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">第一階段｜6.3</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">盤點立場</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-slate-800">
+                                「運氣」寓言：名稱背後，是否有可辨識的能力？
+                            </h4>
+                            <button onclick="toggleModal('fable-modal')" class="text-xs bg-slate-100 hover:bg-slate-200 text-[#0f2942] font-bold px-3 py-1.5 rounded-lg border border-slate-300 transition self-start">
+                                📖 什麼是「運氣」寓言？
+                            </button>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-600">
+                            我們都有「人類智慧」跟「人工智慧」這兩個詞，但它們真的指向某種實存的、可界定的單一能力嗎？點擊下方四宮格，看看學界與大眾的四種立場：
+                        </p>
+
+                        <!-- 互動四宮格矩陣 -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse text-sm text-center rounded-xl overflow-hidden border border-slate-300">
+                                <thead>
+                                    <tr class="bg-sky-100 text-[#0f2942] font-bold">
+                                        <th class="p-3 border border-slate-300 w-1/4 bg-slate-100">概念存廢矩陣</th>
+                                        <th class="p-3 border border-slate-300 w-3/8">AI 概念保留<br><span class="text-xs font-normal text-slate-600">（承認 AI 是一種實存系統）</span></th>
+                                        <th class="p-3 border border-slate-300 w-3/8">AI 概念否認<br><span class="text-xs font-normal text-slate-600">（認為 AI 只是行銷口號或統計工具）</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-3 border border-slate-300 font-bold bg-sky-50 text-[#0f2942]">
+                                            人類智慧保留<br><span class="text-xs font-normal text-slate-600">（承認人有獨特智慧）</span>
+                                        </td>
+                                        <td class="p-2 border border-slate-300">
+                                            <button onclick="selectMatrix(1)" id="matrix-btn-1" class="w-full h-full py-3 px-2 rounded-lg bg-amber-300 hover:bg-amber-400 text-slate-900 font-black shadow-sm transition ring-2 ring-amber-500">
+                                                ★ 第四格：接受比較<br>
+                                                <span class="text-xs font-semibold">（作者暫採的方法論起點）</span>
+                                            </button>
+                                        </td>
+                                        <td class="p-2 border border-slate-300">
+                                            <button onclick="selectMatrix(2)" id="matrix-btn-2" class="w-full h-full py-3 px-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold transition">
+                                                保留人、否認 AI<br>
+                                                <span class="text-xs font-normal text-slate-500">（點擊看解析）</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 border border-slate-300 font-bold bg-sky-50 text-[#0f2942]">
+                                            人類智慧否認<br><span class="text-xs font-normal text-slate-600">（認為智慧只是幻覺或標籤）</span>
+                                        </td>
+                                        <td class="p-2 border border-slate-300">
+                                            <button onclick="selectMatrix(3)" id="matrix-btn-3" class="w-full h-full py-3 px-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold transition">
+                                                否認人、保留 AI<br>
+                                                <span class="text-xs font-normal text-slate-500">（點擊看解析）</span>
+                                            </button>
+                                        </td>
+                                        <td class="p-2 border border-slate-300">
+                                            <button onclick="selectMatrix(4)" id="matrix-btn-4" class="w-full h-full py-3 px-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold transition">
+                                                雙重否認<br>
+                                                <span class="text-xs font-normal text-slate-500">（點擊看解析）</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 矩陣點擊解說顯示區 -->
+                        <div id="matrix-explanation" class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-700">
+                            <span class="font-bold text-[#0f2942]">【第四格：接受比較（作者的策略起點）】</span>
+                            這裡的「存在」是指具有可界定的特性或能力。安德勒決定<strong>暫時保留「人類智慧」與「人工智慧」兩個概念</strong>，不急著一開始就宣布某一方不存在，而是先進入比較，在比較過程中看清楚它們各自的真實面貌。
+                        </div>
+
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            💡 作者暫時保留兩個概念，在比較中釐清它們。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: 6.4 比較解題能力 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">3</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">第二階段｜6.4</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">比較解題能力</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-5">
+                        <div class="text-center">
+                            <div class="inline-block bg-sky-200/80 text-[#0f2942] font-black px-6 py-2 rounded-xl text-base sm:text-lg">
+                                暫定：智慧 ＝ 解決問題的能力
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 mt-2 font-medium">
+                                既然世界上「問題」多到難以列完與計數 ➔ 學者們轉向研究背後的「機制」與「領域」
+                            </p>
+                        </div>
+
+                        <!-- 途徑 A 與 途徑 B 比較卡 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- 途徑 A -->
+                            <div class="border-2 border-teal-700/30 rounded-xl overflow-hidden flex flex-col">
+                                <div class="bg-teal-700 text-white px-4 py-2.5 font-bold flex items-center justify-between">
+                                    <span>⚙️ 途徑 A｜內部機制</span>
+                                    <span class="text-xs bg-teal-800 px-2 py-0.5 rounded">硬體與演算法視角</span>
+                                </div>
+                                <div class="p-4 bg-white flex-1 flex flex-col justify-between space-y-3 text-sm">
+                                    <ul class="space-y-2 text-slate-700 list-disc pl-4">
+                                        <li><strong>核心追問：</strong>人類認知是否涉及「非演算法」歷程？</li>
+                                        <li><strong>經典論據：</strong>檢查哥德爾不完備定理、大腦生物構造、人類內省經驗三類論據。</li>
+                                        <li><strong>遭遇瓶頸：</strong>大腦描述層次與潛伏歷程太複雜，使推論仍有缺口。</li>
+                                    </ul>
+                                    <div class="bg-emerald-50 border border-emerald-200 text-emerald-900 p-2.5 rounded-lg text-center font-bold text-xs sm:text-sm">
+                                        ▼ 結論：尚未確立人機之間的根本界線
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 途徑 B -->
+                            <div class="border-2 border-teal-700/30 rounded-xl overflow-hidden flex flex-col">
+                                <div class="bg-teal-700 text-white px-4 py-2.5 font-bold flex items-center justify-between">
+                                    <span>📚 途徑 B｜能力領域</span>
+                                    <span class="text-xs bg-teal-800 px-2 py-0.5 rounded">認知心理學視角</span>
+                                </div>
+                                <div class="p-4 bg-white flex-1 flex flex-col justify-between space-y-3 text-sm">
+                                    <ul class="space-y-2 text-slate-700 list-disc pl-4">
+                                        <li><strong>核心追問：</strong>尋找人類具有、但 AI 原則上難以達成的能力領域。</li>
+                                        <li><strong>檢視項目：</strong>嬰兒核心知識（物理/心理直覺）、自然語言理解、感覺動作整合。</li>
+                                        <li><strong>遭遇瓶頸：</strong>AI 目前的困難，很難直接證明是「永遠無法突破的限制」。</li>
+                                    </ul>
+                                    <div class="bg-emerald-50 border border-emerald-200 text-emerald-900 p-2.5 rounded-lg text-center font-bold text-xs sm:text-sm">
+                                        ▼ 結論：人與 AI 各有優勢，長遠界線仍待釐清
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 關鍵分岔路口互動區 -->
+                        <div class="bg-slate-100 p-4 rounded-xl border border-slate-300 text-center space-y-3">
+                            <span class="inline-block bg-white border-2 border-[#0f2942] text-[#0f2942] font-black px-4 py-1 rounded-full text-sm shadow-sm">
+                                🧭 接下來往哪裡走？（論證的分岔點）
+                            </span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                                <div class="bg-sky-100 border border-sky-300 p-3 rounded-lg text-left">
+                                    <p class="font-bold text-[#0f2942] text-sm">↙ 路線一：尋找缺少的要素（前往階段 4）</p>
+                                    <p class="text-xs text-slate-600 mt-1">繼續維持「智慧＝解題」，試著找出 AI 還少哪塊拼圖（如意識、常識、情感），把它補齊。</p>
+                                </div>
+                                <div class="bg-amber-100 border border-amber-400 p-3 rounded-lg text-left">
+                                    <p class="font-bold text-amber-950 text-sm">↘ 路線二：重新檢查定義（前往階段 5 & Ch07）</p>
+                                    <p class="text-xs text-amber-900 mt-1">懷疑「把零件加總就能變成智慧」的想法，回頭徹底檢討「智慧＝解題能力」這個定義本身！</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: 6.5 尋找缺少的要素 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">4</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">第三階段｜6.5</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">尋找缺少的要素</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h4 class="text-lg font-bold text-slate-800">
+                                以下為作者對 5 大「候選能力」的評估
+                            </h4>
+                            <span class="text-xs text-teal-700 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-md font-medium">
+                                點擊各要素可展開白話說明
+                            </span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600">
+                            許多人認為 AI 只要再加上某個「關鍵要素」就能擁有真正的人類智慧。安德勒逐一檢視這五個熱門候選者，發現它們都無法單獨作為填補鴻溝的解方：
+                        </p>
+
+                        <!-- 5個候選要素互動列表 -->
+                        <div class="space-y-2.5" id="candidate-list">
+                            <!-- 1 意識 -->
+                            <div onclick="toggleCandidate(1)" class="cursor-pointer border border-slate-200 hover:border-teal-600 rounded-xl p-3 transition bg-slate-50/60">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-6 h-6 rounded bg-teal-700 text-white text-xs font-bold flex items-center justify-center">1</span>
+                                        <span class="font-bold text-[#0f2942]">意識 (Consciousness)</span>
+                                        <span class="text-xs text-slate-600 hidden md:inline">｜本質、解題作用及實現方式仍不清楚</span>
+                                    </div>
+                                    <span class="text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-1 rounded-md self-start sm:self-auto">
+                                        ➔ 尚難形成補足方案
+                                    </span>
+                                </div>
+                                <div id="cand-detail-1" class="hidden mt-3 pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <strong>白話解析：</strong>科學界連人類意識的本質是什麼、意識在「解決問題」中到底扮演什麼實際功能都還沒有共識，因此根本無法開出工程規格讓 AI 去「安裝」意識。
+                                </div>
+                            </div>
+
+                            <!-- 2 意義 -->
+                            <div onclick="toggleCandidate(2)" class="cursor-pointer border border-slate-200 hover:border-teal-600 rounded-xl p-3 transition bg-slate-50/60">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-6 h-6 rounded bg-teal-700 text-white text-xs font-bold flex items-center justify-center">2</span>
+                                        <span class="font-bold text-[#0f2942]">意義 (Meaning)</span>
+                                        <span class="text-xs text-slate-600 hidden md:inline">｜直接認識與描述認識；資訊不足與主動探查</span>
+                                    </div>
+                                    <span class="text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-1 rounded-md self-start sm:self-auto">
+                                        ➔ 進一步指向常識
+                                    </span>
+                                </div>
+                                <div id="cand-detail-2" class="hidden mt-3 pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <strong>白話解析：</strong>AI 處理的是符號與統計關聯，但不懂得符號背後的「意義」。當我們追問人類如何理解意義、如何在資訊不足時主動探查世界，問題就會立刻滑向更龐大的「常識」問題。
+                                </div>
+                            </div>
+
+                            <!-- 3 常識 -->
+                            <div onclick="toggleCandidate(3)" class="cursor-pointer border border-slate-200 hover:border-teal-600 rounded-xl p-3 transition bg-slate-50/60">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-6 h-6 rounded bg-teal-700 text-white text-xs font-bold flex items-center justify-center">3</span>
+                                        <span class="font-bold text-[#0f2942]">常識 (Common Sense)</span>
+                                        <span class="text-xs text-slate-600 hidden md:inline">｜知識＋合理推論；跨領域、例外與長尾情境</span>
+                                    </div>
+                                    <span class="text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-1 rounded-md self-start sm:self-auto">
+                                        ➔ 作者懷疑它能否作為單一要素
+                                    </span>
+                                </div>
+                                <div id="cand-detail-3" class="hidden mt-3 pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <strong>白話解析：</strong>常識不是一本寫滿規則的百科全書，它涉及跨領域判斷、處理罕見例外（長尾效應）與對日常情境的直覺。安德勒認為「常識」根本不是一個可以獨立抽出來的單一模組，而是整體智慧的展現。
+                                </div>
+                            </div>
+
+                            <!-- 4 後設認知 -->
+                            <div onclick="toggleCandidate(4)" class="cursor-pointer border border-slate-200 hover:border-teal-600 rounded-xl p-3 transition bg-slate-50/60">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-6 h-6 rounded bg-teal-700 text-white text-xs font-bold flex items-center justify-center">4</span>
+                                        <span class="font-bold text-[#0f2942]">後設認知 (Metacognition)</span>
+                                        <span class="text-xs text-slate-600 hidden md:inline">｜監控機制已有實作，整體能力如何提升仍待說明</span>
+                                    </div>
+                                    <span class="text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-1 rounded-md self-start sm:self-auto">
+                                        ➔ 不足以單獨填補差距
+                                    </span>
+                                </div>
+                                <div id="cand-detail-4" class="hidden mt-3 pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <strong>白話解析：</strong>「知道自己知道什麼、不知道什麼」的自我監控機制，工程師其實已經在 AI 中實作了部分功能（例如信心水準評估），但這依然沒有讓 AI 產生質變成為人類智慧。
+                                </div>
+                            </div>
+
+                            <!-- 5 情感 -->
+                            <div onclick="toggleCandidate(5)" class="cursor-pointer border border-slate-200 hover:border-teal-600 rounded-xl p-3 transition bg-slate-50/60">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-6 h-6 rounded bg-teal-700 text-white text-xs font-bold flex items-center justify-center">5</span>
+                                        <span class="font-bold text-[#0f2942]">情感 (Emotion)</span>
+                                        <span class="text-xs text-slate-600 hidden md:inline">｜辨識、表達與注意力控制的角色及限度</span>
+                                    </div>
+                                    <span class="text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-1 rounded-md self-start sm:self-auto">
+                                        ➔ 整體突破尚待論證
+                                    </span>
+                                </div>
+                                <div id="cand-detail-5" class="hidden mt-3 pt-2.5 border-t border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <strong>白話解析：</strong>人工情感計算可以模仿人類表情或調節系統權重，但人類情感深植於生物肉體的生存焦慮與價值在乎，單靠演算法模擬情感調節，並不能直接帶來整體智慧的突破。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-sky-100 text-[#0f2942] px-4 py-2.5 rounded-xl text-sm font-bold text-center border border-sky-200">
+                            身體與主體性：擁有軀體，如何形成與世界的關係？（引出下一章伏筆）
+                        </div>
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            💡 核心結論：累加功能，仍未充分回答「整體智慧」如何形成。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: 6.6 檢查可加性的限度 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">5</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">第四階段｜6.6</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">檢查可加性的限度</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                            <!-- 左側：瑞士刀比喻與三時刻 -->
+                            <div class="lg:col-span-7 space-y-4">
+                                <h4 class="text-lg font-bold text-slate-800">
+                                    🔪 瑞士刀比喻：增加刀片，如何構成整體智慧？
+                                </h4>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    把各種專用 AI 模組組裝在一起，就像一把擁有上百片刀片的超級瑞士刀。但<strong>誰來決定現在該翻出哪一片刀？或者發現根本不該用刀？</strong>就連「解決問題」這件事本身，都包含三個超出孤立解題程序的時刻：
+                                </p>
+
+                                <!-- 三時刻流程卡 -->
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center">
+                                    <div class="bg-sky-50 border border-sky-200 p-3 rounded-xl">
+                                        <div class="font-black text-[#0f2942] text-sm bg-sky-200/80 py-1 px-2 rounded-lg mb-1.5">1. 形成問題</div>
+                                        <p class="text-xs text-slate-600">在混亂處境中選擇目標、抽象化為題目</p>
+                                    </div>
+                                    <div class="bg-sky-50 border border-sky-200 p-3 rounded-xl">
+                                        <div class="font-black text-[#0f2942] text-sm bg-sky-200/80 py-1 px-2 rounded-lg mb-1.5">2. 尋找解方</div>
+                                        <p class="text-xs text-slate-600">動員跨領域的一般能力與資源</p>
+                                    </div>
+                                    <div class="bg-sky-50 border border-sky-200 p-3 rounded-xl">
+                                        <div class="font-black text-[#0f2942] text-sm bg-sky-200/80 py-1 px-2 rounded-lg mb-1.5">3. 評估解方</div>
+                                        <p class="text-xs text-slate-600">把算出來的答案放回真實情境判斷</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-100 text-slate-700 px-3 py-2 rounded-lg text-xs sm:text-sm text-center font-medium">
+                                    這三個時刻，都涉及超出「孤立解題程序」的一般能力。
+                                </div>
+
+                                <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                                    ❓ 終極詰問：比較解題表現，能否充分掌握人類智慧？
+                                </div>
+                            </div>
+
+                            <!-- 右側：作者的投影比喻 SVG 視覺化 -->
+                            <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+                                <span class="text-xs font-bold bg-[#0f2942] text-white px-3 py-1 rounded-full mb-2">作者的空間投影比喻</span>
+                                <svg viewBox="0 0 260 210" class="w-full max-w-[240px] h-auto">
+                                    <!-- 地板投影平面 -->
+                                    <polygon points="20,165 110,130 245,155 155,195" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1.5"/>
+                                    <!-- 地面上的影子 -->
+                                    <ellipse cx="145" cy="162" rx="45" ry="10" fill="#64748b" opacity="0.6" transform="rotate(-8 145 162)"/>
+                                    <!-- 站立的人類立體剪影 -->
+                                    <circle cx="95" cy="48" r="13" fill="#0f2942"/>
+                                    <path d="M80,68 C80,64 110,64 110,68 L114,115 L104,115 L102,158 L88,158 L86,115 L76,115 Z" fill="#0f2942"/>
+                                    <!-- 投影虛線 -->
+                                    <line x1="108" y1="48" x2="180" y2="158" stroke="#64748b" stroke-width="1" stroke-dasharray="4,4"/>
+                                    <!-- 標籤：人類智慧 -->
+                                    <rect x="135" y="42" width="85" height="24" rx="6" fill="#ffffff" stroke="#0f2942" stroke-width="1.5"/>
+                                    <text x="177" y="58" font-size="11" font-weight="bold" fill="#0f2942" text-anchor="middle">立體：人類智慧</text>
+                                    <line x1="108" y1="55" x2="135" y2="54" stroke="#0f2942" stroke-width="1.5"/>
+                                    <!-- 標籤：問題平面上的投影 -->
+                                    <rect x="115" y="175" width="130" height="24" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+                                    <text x="180" y="191" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">問題平面上的扁平投影</text>
+                                </svg>
+                                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                                    人類智慧是<strong>立體的</strong>，而「解決明確定義的問題」只是它在二維平面上投射出的<strong>扁平影子</strong>。AI 在影子的平面上匹敵人類，不代表它擁有立體的智慧。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 底部導引至 Ch07 按鈕 -->
+            <div class="pt-4 flex justify-center">
+                <button onclick="switchChapter(7)" class="group bg-[#0f2942] hover:bg-teal-800 text-white font-bold px-8 py-4 rounded-2xl shadow-lg flex items-center gap-3 transition transform hover:-translate-y-0.5">
+                    <span>走向 Ch07：情境、動物性與智慧的重建</span>
+                    <span class="text-amber-300 group-hover:translate-x-1 transition">➔</span>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             CH07 內容區塊：智慧與動物性
+             ========================================== -->
+        <section id="content-ch07" class="chapter-section hidden space-y-8">
+            
+            <!-- 章節大標題橫幅 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-teal-600 via-[#0f2942] to-amber-500"></div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold mb-3">
+                    <span>承接 Ch06：比較解題表現，能否涵蓋整體智慧？</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-[#0f2942] tracking-tight">
+                    Ch07｜智慧與動物性
+                </h2>
+                <p class="mt-3 inline-block bg-sky-100 text-[#0f2942] font-bold px-5 py-1.5 rounded-full text-sm sm:text-base">
+                    從解決問題，到在情境中適當行動
+                </p>
+                <p class="mt-4 text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                    既然「解題能力」只是智慧的扁平投影，那真正的智慧究竟是什麼？安德勒在第七章帶領我們回到生物學與演化的根源：智慧首先不是電腦機房裡的符號運算，而是<strong>活生生的動物在充滿未知的環境中，為了生存而採取「適當行動」的能力</strong>。
+                </p>
+            </div>
+
+            <!-- 步驟時間軸容器 -->
+            <div class="relative space-y-8 before:hidden md:before:block before:absolute before:top-10 before:bottom-10 before:left-[104px] before:w-1 before:bg-slate-300">
+
+                <!-- Step 1: 7.1 重問智慧 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">1</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">起點｜7.1</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">重問智慧</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                        <div class="bg-sky-100/80 text-[#0f2942] font-black py-2 px-4 rounded-xl text-center text-base sm:text-lg">
+                            古老探問的回歸
+                        </div>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 py-2">
+                            <div class="w-full sm:w-5/12 bg-sky-50 border border-sky-200 p-4 rounded-xl text-center font-bold text-[#0f2942]">
+                                AI 持續完成各項認知任務
+                                <p class="text-xs font-normal text-slate-600 mt-1">（下棋、翻譯、辨識、生成文本）</p>
+                            </div>
+                            <div class="text-2xl font-black text-[#0f2942] rotate-90 sm:rotate-0">➔</div>
+                            <div class="w-full sm:w-5/12 bg-sky-50 border border-sky-200 p-4 rounded-xl text-center font-bold text-[#0f2942]">
+                                更需要釐清「何謂智慧」
+                                <p class="text-xs font-normal text-slate-600 mt-1">（逼我們正視過去視為理所當然的概念）</p>
+                            </div>
+                        </div>
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            💡 核心洞見：任務清單逐項完成，不等於已回答「智慧是什麼」。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: 7.2 檢視定義 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">2</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">第一階段｜7.2</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">檢視定義</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                        <div class="bg-sky-100/80 text-[#0f2942] font-black py-2 px-4 rounded-xl text-center text-base sm:text-lg">
+                            為智慧尋找定義
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div class="bg-teal-700 text-white p-3.5 rounded-xl text-center font-bold shadow-sm">
+                                ⚙️ 理解與學習
+                                <p class="text-xs font-normal text-teal-100 mt-1">獲取新知、掌握規律</p>
+                            </div>
+                            <div class="bg-teal-700 text-white p-3.5 rounded-xl text-center font-bold shadow-sm">
+                                💡 解決問題
+                                <p class="text-xs font-normal text-teal-100 mt-1">推理、計算與克服障礙</p>
+                            </div>
+                            <div class="bg-teal-700 text-white p-3.5 rounded-xl text-center font-bold shadow-sm">
+                                🌱 行動與適應
+                                <p class="text-xs font-normal text-teal-100 mt-1">在變動環境中求生調整</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-sky-50 border border-sky-200 text-[#0f2942] px-4 py-2.5 rounded-xl text-sm font-bold text-center">
+                            暫定定義：運用已有知識、尋找欠缺知識，及時回應問題
+                        </div>
+
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            ❓ 仍須追問：對「誰」而言是問題？什麼答案才可接受？（誰在乎結果？）
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: 7.3 引入動物與環境 (Umwelt 互動體驗) -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">3</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">第二階段｜7.3</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">引入動物與環境</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+                        <div class="bg-sky-100/80 text-[#0f2942] font-black py-2 px-4 rounded-xl text-center text-base sm:text-lg">
+                            有機體與環境：生物學設想
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                            <div class="w-full sm:w-5/12 bg-sky-100 text-[#0f2942] px-4 py-2.5 rounded-full text-center font-bold text-sm">
+                                動物的身體與需求
+                            </div>
+                            <span class="font-black text-xl text-[#0f2942]">⟷</span>
+                            <div class="w-full sm:w-5/12 bg-sky-100 text-[#0f2942] px-4 py-2.5 rounded-full text-center font-bold text-sm">
+                                周遭世界 (Umwelt)
+                            </div>
+                        </div>
+
+                        <!-- 互動體驗：同一棵樹在不同生物眼中的意義 -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <span class="text-xs sm:text-sm font-bold text-[#0f2942]">
+                                    🌳 互動實驗：點擊切換視角，看看「同一棵橡樹」在不同主體的世界裡是什麼？
+                                </span>
+                                <div class="flex gap-1.5">
+                                    <button onclick="switchUmwelt('monkey')" id="umwelt-monkey" class="px-3 py-1 rounded-lg text-xs font-bold bg-teal-700 text-white transition">🐒 猴子視角</button>
+                                    <button onclick="switchUmwelt('boar')" id="umwelt-boar" class="px-3 py-1 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">🐗 野豬視角</button>
+                                    <button onclick="switchUmwelt('ai')" id="umwelt-ai" class="px-3 py-1 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">🤖 AI 視角</button>
+                                </div>
+                            </div>
+                            <div id="umwelt-display" class="bg-white p-3.5 rounded-lg border border-slate-200 text-xs sm:text-sm text-slate-700">
+                                <p class="font-bold text-teal-800 mb-1">🐒 對猴子而言：樹是「可攀爬的立體通道與避難所」</p>
+                                <p>因為猴子擁有抓握的四肢與靈活軀體（身體構造），且需要躲避地面掠食者（生存需求），大樹在牠的周遭世界（Umwelt）中呈現出「往上爬」的行動可能性（Affordance）。</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center">
+                            <div class="bg-emerald-100/80 border border-emerald-300 text-emerald-950 py-2.5 px-4 rounded-xl font-bold text-sm">
+                                依附生物體的構造（具身性）
+                            </div>
+                            <div class="bg-emerald-100/80 border border-emerald-300 text-emerald-950 py-2.5 px-4 rounded-xl font-bold text-sm">
+                                依附所處的環境（嵌入性）
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            💡 核心結論：智慧具有「雙重依附」，不能抽離身體與環境來理解。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: 7.4 區分問題與情境（全書論證樞紐！） -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md ring-4 ring-amber-400/50">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-amber-400 text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">4</span>
+                            <span class="text-xs font-bold text-amber-300 tracking-wider uppercase">論證樞紐｜7.4</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold tracking-wide">區分問題與情境</h3>
+                            <span class="hidden md:inline-block mt-2 text-[11px] bg-amber-400/20 text-amber-200 px-2 py-0.5 rounded border border-amber-400/40">★ 全書最關鍵區分</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border-2 border-[#0f2942]/20 space-y-4">
+                        <div class="bg-sky-100 text-[#0f2942] font-black py-2.5 px-4 rounded-xl text-center text-base sm:text-xl">
+                            【問題 Problem】 不等於 【情境 Situation】
+                        </div>
+
+                        <!-- 問題 vs 情境 對照表 -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse text-sm text-center rounded-xl overflow-hidden border border-slate-300">
+                                <thead>
+                                    <tr class="bg-sky-200/70 text-[#0f2942] font-black text-base">
+                                        <th class="p-3 border border-slate-300 w-1/2">🧩 【問題】 (Problem)<br><span class="text-xs font-normal text-slate-700">AI 最擅長處理的領域</span></th>
+                                        <th class="p-3 border border-slate-300 w-1/2">🌊 【情境】 (Situation)<br><span class="text-xs font-normal text-slate-700">生物與人類真實面對的處境</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-800 font-medium">
+                                    <tr class="bg-white">
+                                        <td class="p-3 border border-slate-300">被提出、被界定好的題目</td>
+                                        <td class="p-3 border border-slate-300 bg-amber-50/40 font-bold text-[#0f2942]">具體、被親身經驗到的處境</td>
+                                    </tr>
+                                    <tr class="bg-slate-50/70">
+                                        <td class="p-3 border border-slate-300">條件與解答標準相對明確</td>
+                                        <td class="p-3 border border-slate-300 bg-amber-50/40 font-bold text-[#0f2942]">需要行動，也可有意選擇不行動</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="p-3 border border-slate-300">可抽離當下，在任何地方反覆求解</td>
+                                        <td class="p-3 border border-slate-300 bg-amber-50/40 font-bold text-[#0f2942]">隨行動者與時間而不斷變化</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 情境轉化為問題的流程鏈 -->
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <p class="text-xs text-slate-500 text-center mb-2 font-semibold">人類在日常中是如何從「情境」走到「解題」的？</p>
+                            <div class="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-bold">
+                                <span class="bg-sky-200 text-[#0f2942] px-3 py-1.5 rounded-lg">1. 身處【情境】</span>
+                                <span>➔</span>
+                                <span class="bg-emerald-100 text-emerald-900 border border-emerald-300 px-3 py-1.5 rounded-lg">2. 選取重點、抽象化</span>
+                                <span>➔</span>
+                                <span class="bg-sky-200 text-[#0f2942] px-3 py-1.5 rounded-lg">3. 框定出【問題】</span>
+                                <span>➔</span>
+                                <span class="bg-emerald-100 text-emerald-900 border border-emerald-300 px-3 py-1.5 rounded-lg">4. 求解與回應（AI 介入點）</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-sky-50 border border-sky-200 text-[#0f2942] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-center">
+                            ⚠️ 關鍵限制：情境未必能完整轉成問題；而適當的行動也未必需要經過明確解題。
+                        </div>
+
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            💡 核心結論：解題只是應對情境的一種方式，無法涵蓋全部智慧。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: 7.5 重建智慧觀 -->
+                <div class="relative flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                    <div class="md:w-52 shrink-0 bg-[#0f2942] text-white rounded-2xl p-5 flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start relative z-10 shadow-md">
+                        <div class="flex items-center gap-3 md:mb-3">
+                            <span class="w-9 h-9 rounded-full bg-white text-[#0f2942] font-black flex items-center justify-center text-lg step-badge">5</span>
+                            <span class="text-xs font-medium text-sky-200 tracking-wider uppercase">第三階段｜7.5</span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold tracking-wide">重建智慧觀</h3>
+                    </div>
+
+                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-5">
+                        <div class="text-center space-y-2">
+                            <div class="bg-sky-100 text-[#0f2942] font-black py-2 px-4 rounded-xl text-base sm:text-lg">
+                                智慧：如何處理【情境】
+                            </div>
+                            <div class="inline-block bg-sky-200/90 text-[#0f2942] font-black px-6 py-2 rounded-full text-sm sm:text-base shadow-sm">
+                                ★ 新定義：在具體情境中，以適當方式行動的能力
+                            </div>
+                        </div>
+
+                        <!-- 三大核心特徵 -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div class="bg-teal-700 text-white p-3 rounded-xl text-center font-bold text-sm">
+                                🎯 自主調整目標
+                            </div>
+                            <div class="bg-teal-700 text-white p-3 rounded-xl text-center font-bold text-sm">
+                                🔄 與環境持續互動
+                            </div>
+                            <div class="bg-teal-700 text-white p-3 rounded-xl text-center font-bold text-sm">
+                                ⚖️ 判斷行動是否適當
+                            </div>
+                        </div>
+
+                        <p class="text-center text-xs sm:text-sm font-bold text-slate-700 bg-slate-100 py-2 rounded-lg">
+                            「智慧」兼具描述與評價：它同時指涉「如何行動」，以及「行動得好不好（適不適當）」。
+                        </p>
+
+                        <!-- 三角關係圖與兩個層次比較 -->
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <!-- 三角關係 SVG -->
+                            <div class="md:col-span-6 flex flex-col items-center">
+                                <svg viewBox="0 0 280 175" class="w-full max-w-[260px] h-auto">
+                                    <!-- 三角形連線 -->
+                                    <polygon points="140,35 55,140 225,140" fill="none" stroke="#0f2942" stroke-width="2.5"/>
+                                    <!-- 頂點節點 -->
+                                    <circle cx="140" cy="35" r="5" fill="#0f2942"/>
+                                    <circle cx="55" cy="140" r="5" fill="#0f2942"/>
+                                    <circle cx="225" cy="140" r="5" fill="#0f2942"/>
+                                    <!-- 標籤框：人工智慧 -->
+                                    <rect x="95" y="6" width="90" height="24" rx="6" fill="#ffffff" stroke="#0f2942" stroke-width="1.5"/>
+                                    <text x="140" y="22" font-size="12" font-weight="bold" fill="#0f2942" text-anchor="middle">人工智慧</text>
+                                    <!-- 標籤框：非人類動物智慧 -->
+                                    <rect x="5" y="145" width="110" height="24" rx="6" fill="#ffffff" stroke="#0f2942" stroke-width="1.5"/>
+                                    <text x="60" y="161" font-size="12" font-weight="bold" fill="#0f2942" text-anchor="middle">非人類動物智慧</text>
+                                    <!-- 標籤框：人類智慧 -->
+                                    <rect x="175" y="145" width="90" height="24" rx="6" fill="#ffffff" stroke="#0f2942" stroke-width="1.5"/>
+                                    <text x="220" y="161" font-size="12" font-weight="bold" fill="#0f2942" text-anchor="middle">人類智慧</text>
+                                </svg>
+                            </div>
+
+                            <!-- 兩個比較層次 -->
+                            <div class="md:col-span-6 space-y-3">
+                                <div class="bg-sky-100 border border-sky-300 p-3.5 rounded-xl">
+                                    <span class="font-black text-[#0f2942] text-sm block">📊 任務層次：可以比較表現</span>
+                                    <p class="text-xs text-slate-700 mt-1">當問題已經被明確界定（例如下圍棋、辨識腫瘤），我們可以客觀比較人與 AI 誰算得快、準確率高。</p>
+                                </div>
+                                <div class="bg-sky-100 border border-sky-300 p-3.5 rounded-xl">
+                                    <span class="font-black text-[#0f2942] text-sm block">🌍 整體智慧：不能直接化約為同一尺度</span>
+                                    <p class="text-xs text-slate-700 mt-1">在真實世界的具體情境中，動物與人類賭上的是「自身生命與在乎的價值」，這無法與沒有生命處境的 AI 放在同一把尺上衡量。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-100/90 border border-amber-300 text-amber-950 px-4 py-3 rounded-xl text-sm font-bold text-center">
+                            💡 全章總結：動物的情境關乎自身生命；這是作者重估「人機比較」的關鍵支點。
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 底部導引至 Ch08 或回 Ch06 按鈕 -->
+            <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="switchChapter(6)" class="bg-white hover:bg-slate-100 text-[#0f2942] border border-slate-300 font-bold px-6 py-3.5 rounded-2xl shadow-sm transition">
+                    ⬅ 回顧 Ch06：人工智慧與人類智慧的比較
+                </button>
+                <button onclick="switchChapter(8)" class="group bg-[#0f2942] hover:bg-teal-800 text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg flex items-center justify-center gap-3 transition">
+                    <span>走向 Ch08：在共同的動物性之上，追問人類智慧的特殊性</span>
+                    <span class="text-amber-300 group-hover:translate-x-1 transition">➔</span>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             其他章節預覽區塊 (Ch01~05, Ch08~10)
+             ========================================== -->
+        <section id="content-placeholder" class="chapter-section hidden">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 max-w-3xl mx-auto text-center space-y-6">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-sky-100 text-[#0f2942] font-black text-2xl shadow-inner" id="ph-badge">
+                    Ch01
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full" id="ph-part">
+                        第一部：人工智慧的雙重謎團
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-[#0f2942] mt-3" id="ph-title">
+                        章節標題載入中...
+                    </h2>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 text-left space-y-3">
+                    <h3 class="font-bold text-[#0f2942] flex items-center gap-2">
+                        <span>📌 本章在全書論證中的定位：</span>
+                    </h3>
+                    <p class="text-slate-700 text-sm sm:text-base leading-relaxed" id="ph-summary">
+                        章節簡介載入中...
+                    </p>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs sm:text-sm text-amber-900">
+                    🛠️ <strong>測試模板提示：</strong>目前已完成 <strong>Ch06</strong> 與 <strong>Ch07</strong> 的完整視覺化互動架構！未來您只需提供其他章節的讀書會整理圖或大綱，我們就能直接嵌入對應的分頁中。
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-3 pt-2">
+                    <button onclick="switchChapter(6)" class="bg-[#0f2942] hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition shadow">
+                        前往 Ch06 完整互動導讀
+                    </button>
+                    <button onclick="switchChapter(7)" class="bg-teal-700 hover:bg-teal-800 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition shadow">
+                        前往 Ch07 完整互動導讀
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁尾資訊 -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 px-4 border-t border-slate-800 mt-12">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p>《AI會取代人類智慧嗎？：人工智能與人類智慧的雙重謎團》讀書會互動導讀模板</p>
+            <p>依章節論證濃縮整理；評估與比喻呈現作者丹尼爾·安德勒立場</p>
+        </div>
+    </footer>
+
+    <!-- 彈出視窗：「運氣」寓言解說 -->
+    <div id="fable-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 class="text-lg font-black text-[#0f2942]">📖 什麼是「運氣」寓言？</h3>
+                <button onclick="toggleModal('fable-modal')" class="text-slate-400 hover:text-slate-600 font-bold text-xl">&times;</button>
+            </div>
+            <div class="text-sm text-slate-700 space-y-3 leading-relaxed">
+                <p>
+                    在日常生活中，我們常說某人「運氣很好」或「具有好運這種特質」。但如果科學家想打開人體尋找「運氣器官」或「運氣基因」，必然一無所獲——因為「運氣」只是一個我們用來事後描述各種巧合結果的<strong>標籤名稱</strong>，背後並沒有一個單一、可獨立分離出來的實存機制。
+                </p>
+                <p>
+                    安德勒用這個寓言提醒我們：當我們談論<strong>「人類智慧」</strong>與<strong>「人工智慧」</strong>時，必須先警覺——這兩個詞背後，到底是真的指向某種可界定的實存能力？還是像「運氣」一樣，只是一個鬆散的集合標籤？
+                </p>
+                <p class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-amber-950 font-medium">
+                    安德勒在 6.3 節選擇「暫時保留這兩個概念」（第四格立場），透過實際比較它們的機制與極限，來檢驗它們真正的內涵。
+                </p>
+            </div>
+            <div class="text-right pt-2">
+                <button onclick="toggleModal('fable-modal')" class="bg-[#0f2942] text-white font-bold px-5 py-2 rounded-xl text-sm">我明白了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 互動邏輯腳本 -->
+    <script>
+        // Ch01 ~ Ch10 全書章節資料結構
+        const chaptersData = [
+            {
+                id: 1,
+                code: "Ch01",
+                title: "導論：人工智慧的雙重謎團",
+                part: "第一部：人工智慧的歷史與本質",
+                ready: false,
+                summary: "介紹為何 AI 同時帶來技術上的驚奇與哲學上的困惑。所謂「雙重謎團」，第一重是：既有的 AI 究竟是如何運作並取得成功的？第二重則是：人類智慧本身的真正本質又是什麼？"
+            },
+            {
+                id: 2,
+                code: "Ch02",
+                title: "第一波浪潮：符號 AI 與心智計算理論",
+                part: "第一部：人工智慧的歷史與本質",
+                ready: false,
+                summary: "回顧經典符號 AI（GOFAI）的興起與假設，探討將人類思維視為「符號形式運算」的哲學基礎，以及第一代 AI 為何在面對真實世界複雜性時遭遇瓶頸。"
+            },
+            {
+                id: 3,
+                code: "Ch03",
+                title: "第二波浪潮：連結主義與機器學習",
+                part: "第一部：人工智慧的歷史與本質",
+                ready: false,
+                summary: "解析類神經網路與深度學習如何顛覆傳統規則系統，從巨量資料中自動提取特徵，並探討「黑盒子」不可解釋性與統計相關性背後的認識論問題。"
+            },
+            {
+                id: 4,
+                code: "Ch04",
+                title: "大型語言模型與生成式 AI 的衝擊",
+                part: "第一部：人工智慧的歷史與本質",
+                ready: false,
+                summary: "剖析當代大型語言模型（如 ChatGPT）如何透過預測下一個詞彙展現驚人的語言流暢度，並追問：流暢的語言形式是否等同於真正的語意理解與推理？"
+            },
+            {
+                id: 5,
+                code: "Ch05",
+                title: "通用人工智慧（AGI）的神話與現實",
+                part: "第一部：人工智慧的歷史與本質",
+                ready: false,
+                summary: "檢視矽谷與學界對「強人工智慧 / 通用人工智慧」的預言，分析從「專用任務系統」跨越到「通用心智」之間是否存在不可忽視的理論斷層。"
+            },
+            {
+                id: 6,
+                code: "Ch06",
+                title: "人工智慧與人類智慧的比較",
+                part: "第二部：人類智慧與人工智慧的面對面",
+                ready: true,
+                summary: "從接受比較，到重新檢查智慧的定義。"
+            },
+            {
+                id: 7,
+                code: "Ch07",
+                title: "智慧與動物性",
+                part: "第二部：人類智慧與人工智慧的面對面",
+                ready: true,
+                summary: "從解決問題，到在情境中適當行動。"
+            },
+            {
+                id: 8,
+                code: "Ch08",
+                title: "智慧與人性：文化、語言與理性",
+                part: "第二部：人類智慧與人工智慧的面對面",
+                ready: false,
+                summary: "承接第七章的「動物性與情境」，進一步追問：在共同的生物基礎之上，人類智慧有哪些獨特之處？深入探討人類的社會文化累積、價值規範、對話理性與集體生活。"
+            },
+            {
+                id: 9,
+                code: "Ch09",
+                title: "人機協作與未來社會的樣貌",
+                part: "第三部：與人工智慧共存",
+                ready: false,
+                summary: "既然 AI 不是「另一種人類」，而是強大的問題求解工具，我們該如何設計制度與工作流程，讓具備「情境智慧」的人類與具備「運算能力」的 AI 互補協作？"
+            },
+            {
+                id: 10,
+                code: "Ch10",
+                title: "結論：解開雙重謎團之後",
+                part: "第三部：與人工智慧共存",
+                ready: false,
+                summary: "總結全書論證路線：AI 不會取代真正意義上的人類智慧，但我們必須避免為了配合機器，而將豐富的人類生活世界自我矮化、扁平化為單純的「問題平面」。"
+            }
+        ];
+
+        let currentChapter = 6;
+
+        // 渲染頂部 Ch01~Ch10 導覽列
+        function renderTabs() {
+            const container = document.getElementById('chapter-tabs');
+            container.innerHTML = '';
+
+            chaptersData.forEach(ch => {
+                const isActive = ch.id === currentChapter;
+                const btn = document.createElement('button');
+                btn.onclick = () => switchChapter(ch.id);
+
+                let baseClasses = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 ";
+                if (isActive) {
+                    baseClasses += "bg-amber-400 text-[#0f2942] shadow-md scale-105";
+                } else if (ch.ready) {
+                    baseClasses += "bg-slate-800 text-white hover:bg-slate-700 border border-teal-500/60";
+                } else {
+                    baseClasses += "bg-slate-800/50 text-slate-400 hover:bg-slate-800 hover:text-slate-200";
+                }
+
+                btn.className = baseClasses;
+                btn.innerHTML = `
+                    <span>${ch.code}</span>
+                    ${ch.ready ? '<span class="w-2 h-2 rounded-full bg-teal-400" title="已完成完整互動圖表"></span>' : ''}
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        // 切換章節
+        function switchChapter(chId) {
+            currentChapter = chId;
+            renderTabs();
+
+            const sec06 = document.getElementById('content-ch06');
+            const sec07 = document.getElementById('content-ch07');
+            const secPh = document.getElementById('content-placeholder');
+
+            sec06.classList.add('hidden');
+            sec07.classList.add('hidden');
+            secPh.classList.add('hidden');
+
+            if (chId === 6) {
+                sec06.classList.remove('hidden');
+            } else if (chId === 7) {
+                sec07.classList.remove('hidden');
+            } else {
+                const chInfo = chaptersData.find(c => c.id === chId);
+                document.getElementById('ph-badge').textContent = chInfo.code;
+                document.getElementById('ph-part').textContent = chInfo.part;
+                document.getElementById('ph-title').textContent = `${chInfo.code}｜${chInfo.title}`;
+                document.getElementById('ph-summary').textContent = chInfo.summary;
+                secPh.classList.remove('hidden');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Ch06 Step 1 問題卡片切換高亮
+        function toggleCh06Q1(which) {
+            const boxA = document.getElementById('btn-ch06-q1a');
+            const boxB = document.getElementById('btn-ch06-q1b');
+            if (which === 'a') {
+                boxA.classList.add('ring-2', 'ring-[#0f2942]');
+                boxB.classList.remove('ring-2', 'ring-[#0f2942]');
+            } else {
+                boxB.classList.add('ring-2', 'ring-[#0f2942]');
+                boxA.classList.remove('ring-2', 'ring-[#0f2942]');
+            }
+        }
+
+        // Ch06 Step 2 四宮格矩陣互動
+        const matrixTexts = {
+            1: `<span class="font-bold text-[#0f2942]">【第四格：接受比較（作者暫採的方法論起點）】</span>
+                這裡的「存在」指具有可界定的特性或能力。安德勒決定<strong>暫時保留「人類智慧」與「人工智慧」兩個概念</strong>，把它們放在一起嚴格比較，藉由比較過程來檢驗兩者的真實界線。`,
+            2: `<span class="font-bold text-[#0f2942]">【保留人類智慧、否認 AI】</span>
+                這種立場認為只有人類擁有真正的智慧，而所謂「人工智慧」只是商業行銷名詞或進階統計工具，根本不配稱為智慧，因此兩者沒什麼好比較的。`,
+            3: `<span class="font-bold text-[#0f2942]">【否認人類智慧、保留 AI】</span>
+                這種極端科學主義立場認為，人類自以為的「智慧」其實只是一堆神經反射與演化習慣的大雜燴名詞；反而是人工智慧工程精確定義了什麼是計算與優化。`,
+            4: `<span class="font-bold text-[#0f2942]">【雙重否認】</span>
+                懷疑論立場：認為不論是「人類智慧」還是「人工智慧」，都像「運氣」一樣只是空泛的日常詞彙，背後都沒有單一、可嚴格界定的科學實體。`
+        };
+
+        function selectMatrix(index) {
+            document.getElementById('matrix-explanation').innerHTML = matrixTexts[index];
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`matrix-btn-${i}`);
+                if (i === index) {
+                    btn.className = "w-full h-full py-3 px-2 rounded-lg bg-amber-300 text-slate-900 font-black shadow-sm transition ring-2 ring-amber-500";
+                } else {
+                    btn.className = "w-full h-full py-3 px-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold transition";
+                }
+            }
+        }
+
+        // Ch06 Step 4 展開五個候選要素詳情
+        function toggleCandidate(id) {
+            const detail = document.getElementById(`cand-detail-${id}`);
+            detail.classList.toggle('hidden');
+        }
+
+        // Ch07 Step 3 Umwelt 視角切換
+        const umweltData = {
+            monkey: {
+                title: '🐒 對猴子而言：樹是「可攀爬的立體通道與避難所」',
+                desc: '因為猴子擁有抓握的四肢與靈活軀體（身體構造），且需要躲避地面掠食者（生存需求），大樹在牠的周遭世界（Umwelt）中呈現出「往上爬」的行動可能性（Affordance）。'
+            },
+            boar: {
+                title: '🐗 對野豬而言：樹下是「尋找橡果食物與磨蹭樹皮的地方」',
+                desc: '野豬沒有攀爬樹枝的身體構造，同一棵樹對牠而言完全沒有「爬上去」的意義，而是地面掉落的橡果（營養需求）與粗糙樹幹的摩擦點。身體與生命需求決定了環境中什麼事物具有重要性。'
+            },
+            ai: {
+                title: '🤖 對 AI 而言：樹只是「像素矩陣或語料庫裡的機率標籤」',
+                desc: 'AI 沒有血肉之軀，不會飢餓、不會從樹上摔死。它能高精準度識別照片裡有「樹 (Tree: 99.4%)」，但這棵樹與它的生存毫無利害關係——它沒有自己的「周遭世界 (Umwelt)」。'
+            }
+        };
+
+        function switchUmwelt(type) {
+            const display = document.getElementById('umwelt-display');
+            const info = umweltData[type];
+            display.innerHTML = `
+                <p class="font-bold text-teal-800 mb-1">${info.title}</p>
+                <p>${info.desc}</p>
+            `;
+
+            ['monkey', 'boar', 'ai'].forEach(k => {
+                const btn = document.getElementById(`umwelt-${k}`);
+                if (k === type) {
+                    btn.className = "px-3 py-1 rounded-lg text-xs font-bold bg-teal-700 text-white transition";
+                } else {
+                    btn.className = "px-3 py-1 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition";
+                }
+            });
+        }
+
+        // Modal 開關控制
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+
+        // 初始化頁面
+        window.onload = function() {
+            renderTabs();
+        };
+    </script>
+</body>
+</html>
